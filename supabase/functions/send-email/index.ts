@@ -4,7 +4,7 @@ import { createTransport } from "npm:nodemailer@6.9.9";
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS'
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
 };
 
 interface EmailData {
@@ -16,20 +16,12 @@ interface EmailData {
 
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
-  return new Response('ok', { headers: corsHeaders });
-}
-
-// 🛡️ Defensive check
-if (req.headers.get("content-type") !== "application/json") {
-  return new Response(JSON.stringify({ message: "Expected application/json" }), {
-    status: 400,
-    headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-  });
-}
+    return new Response('ok', { headers: corsHeaders });
+  }
 
   try {
-    const rawBody = await req.text();
-    console.log('Raw Body:', rawBody);
+    const body = await req.json();
+    console.log('Raw Body:', body);
     const { name, email, subject, message } = await req.json() as EmailData;
 
     // Get secrets from Supabase
