@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50;
+  }
+}
+
+@layer components {
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(to right, rgb(229 231 235 / 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(229 231 235 / 0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  
+  .typing-cursor {
+    display: inline-block;
+    width: 2px;
+    background-color: currentColor;
+    animation: blink 1s step-end infinite;
+  }
+}
+
+@layer utilities {
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  
+  .animation-delay-900 {
+    animation-delay: 900ms;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes float-delay {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 0.7s ease-out forwards;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-delay {
+    animation: float-delay 8s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+  
+  .animate-rotate-slow {
+    animation: rotate 15s linear infinite;
+  }
+  
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+}
