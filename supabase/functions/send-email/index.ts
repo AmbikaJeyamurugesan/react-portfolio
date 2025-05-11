@@ -16,10 +16,20 @@ interface EmailData {
 
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
-    return new Response('ok', { headers: corsHeaders });
-  }
+  return new Response('ok', { headers: corsHeaders });
+}
+
+// 🛡️ Defensive check
+if (req.headers.get("content-type") !== "application/json") {
+  return new Response(JSON.stringify({ message: "Expected application/json" }), {
+    status: 400,
+    headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+  });
+}
 
   try {
+    const rawBody = await req.text();
+    console.log('Raw Body:', rawBody);
     const { name, email, subject, message } = await req.json() as EmailData;
 
     // Get secrets from Supabase
