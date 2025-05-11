@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, MapPin, Send } from 'lucide-react';
+import { MailService } from '../api/mailService';
 
 interface ContactProps {
   id: string;
@@ -40,23 +41,17 @@ const Contact: React.FC<ContactProps> = ({ id }) => {
     setSubmitStatus(null);
     
     try {
-      // In a real implementation, you would send this data to your backend
-      // For now, we'll simulate an API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const result = await MailService.sendEmail(formData);
+      setSubmitStatus(result);
       
-      // Simulate successful submission
-      setSubmitStatus({
-        success: true,
-        message: 'Thank you! Your message has been sent successfully.'
-      });
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
+      if (result.success) {
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      }
     } catch (error) {
       setSubmitStatus({
         success: false,
