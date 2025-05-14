@@ -5,6 +5,7 @@ const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Max-Age': '86400',
 };
 
 interface EmailData {
@@ -15,13 +16,15 @@ interface EmailData {
 }
 
 serve(async (req) => {
+  // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
-    return new Response('ok', { headers: corsHeaders });
+    return new Response(null, {
+      status: 204,
+      headers: corsHeaders
+    });
   }
 
   try {
-    const body = await req.json();
-    console.log('Raw Body:', body);
     const { name, email, subject, message } = await req.json() as EmailData;
 
     // Get secrets from Supabase
@@ -84,7 +87,8 @@ Message: ${message}
     return new Response(
       JSON.stringify({ 
         success: false, 
-        message: 'Failed to send email. Please try again later.'
+        message: 'Failed to send email. Please try again later.',
+        error: error.message
       }),
       { 
         status: 500,

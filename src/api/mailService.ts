@@ -10,7 +10,6 @@ export class MailService {
     try {
       const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-email`, {
         method: 'POST',
-        mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
@@ -18,12 +17,17 @@ export class MailService {
         body: JSON.stringify(data)
       });
 
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || 'Failed to send email');
+      }
+
       return await response.json();
     } catch (error) {
       console.error('Error sending email:', error);
       return {
         success: false,
-        message: 'Failed to send email. Please try again later.'
+        message: (error as Error).message || 'Failed to send email. Please try again later.'
       };
     }
   }
