@@ -15,11 +15,13 @@ export class MailService {
           'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
           'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY
         },
+        credentials: 'include',
         body: JSON.stringify(data)
       });
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
+        console.error('Server response:', errorData);
         throw new Error(errorData.message || 'Failed to send email');
       }
 
