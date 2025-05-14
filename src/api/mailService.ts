@@ -15,17 +15,18 @@ export class MailService {
           'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
           'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY
         },
-        credentials: 'include',
+        // credentials: 'include', // ✅ Add this if your Edge Function sends Access-Control-Allow-Credentials: true
         body: JSON.stringify(data)
       });
 
+      const result = await response.json().catch(() => ({}));
+
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        console.error('Server response:', errorData);
-        throw new Error(errorData.message || 'Failed to send email');
+        console.error('Server response:', result);
+        throw new Error(result.message || 'Failed to send email');
       }
 
-      return await response.json();
+      return result;
     } catch (error) {
       console.error('Error sending email:', error);
       return {

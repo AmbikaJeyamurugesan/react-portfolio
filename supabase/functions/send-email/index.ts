@@ -14,11 +14,10 @@ serve(async (req) => {
   const isAllowed = allowedOrigins.includes(origin ?? '');
 
   const corsHeaders = {
-    'Access-Control-Allow-Origin': isAllowed ? origin : 'null',
+    'Access-Control-Allow-Origin': isAllowed ? origin : '',
     'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Max-Age': '86400',
-    'Access-Control-Allow-Credentials': 'true'
+    // 'Access-Control-Allow-Credentials': 'true',
   };
 
   // Handle CORS preflight requests
