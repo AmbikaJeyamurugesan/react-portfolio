@@ -1,5 +1,10 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { SmtpClient } from "https://deno.land/x/smtp@v0.7.0/mod.ts";
+
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+};
 
 interface EmailData {
   name: string;
@@ -8,26 +13,12 @@ interface EmailData {
   message: string;
 }
 
-serve(async (req) => {
-  const allowedOrigins = ['https://ambi-portfolio.netlify.app'];
-  const origin = req.headers.get('origin');
-  const isAllowed = allowedOrigins.includes(origin ?? '');
-
-  const corsHeaders = {
-    'Access-Control-Allow-Origin': isAllowed ? origin : '',
-    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    // 'Access-Control-Allow-Credentials': 'true',
-  };
-
+Deno.serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response(null, {
       status: 204,
-      headers: {
-        ...corsHeaders,
-        'Content-Type': 'application/json',
-      }
+      headers: corsHeaders
     });
   }
 
@@ -56,6 +47,7 @@ serve(async (req) => {
       port: smtpPort,
       username: smtpUser,
       password: smtpPass,
+      tls: true,
     });
 
     // Send email
