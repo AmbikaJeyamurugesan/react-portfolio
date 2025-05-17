@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
                 Navigate
               </h3>
               <ul className="mt-4 space-y-2">
-                {['About', 'Skills', 'Experience', 'Projects', 'Certifications', 'Contact'].map((item) => (
+                {['About', 'Skills', 'Experience', 'Projects', /*'Certifications',*/ 'Contact'].map((item) => (
                   <li key={item}>
                     <a 
                       href={`#${item.toLowerCase()}`} 

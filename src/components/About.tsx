@@ -1,5 +1,6 @@
 import React from 'react';
 import { User, Mail, MapPin, Calendar } from 'lucide-react';
+import Profile from '../public/profile.jpg'
 
 interface AboutProps {
   id: string;
@@ -83,7 +84,7 @@ const About: React.FC<AboutProps> = ({ id }) => {
                 href="#contact" 
                 className="px-6 py-3 bg-white dark:bg-gray-800 border border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400 font-medium rounded-full hover:bg-primary-50 dark:hover:bg-gray-700 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50"
               >
-                Contact Me
+                Contact
               </a>
             </div>
           </div>
@@ -93,7 +94,7 @@ const About: React.FC<AboutProps> = ({ id }) => {
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 animate-rotate-slow"></div>
               <div className="absolute inset-2 rounded-full bg-white dark:bg-gray-900 flex items-center justify-center overflow-hidden">
                 <img 
-                  src="https://drive.google.com/file/d/19Cmvq0vyjZW-_r0D46wiO_wtxmE5JUrP/view?usp=drive_link" 
+                  src={Profile} 
                   alt="Profile"
                   className="w-full h-full object-cover rounded-full"
                 />

@@ -130,10 +130,12 @@ const Contact: React.FC<ContactProps> = ({ id }) => {
             </div>
             
             <div className="mt-12">
-              <h4 className="font-medium text-gray-800 dark:text-white mb-4">Follow Me</h4>
+              <h4 className="font-medium text-gray-800 dark:text-white mb-4">Follow</h4>
               <div className="flex space-x-4">
                 <a 
                   href="https://www.linkedin.com/in/ambikajeyamurugesan/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-600 transition-colors"
                   aria-label="LinkedIn"
                 >
@@ -143,6 +145,8 @@ const Contact: React.FC<ContactProps> = ({ id }) => {
                 </a>
                 <a 
                   href="https://github.com/AmbikaJeyamurugesan" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-600 transition-colors"
                   aria-label="GitHub"
                 >
@@ -152,6 +156,8 @@ const Contact: React.FC<ContactProps> = ({ id }) => {
                 </a>
                 <a 
                   href="https://www.instagram.com/ambikajeyamurugesan/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-600 transition-colors"
                   aria-label="Instagram"
                 >
