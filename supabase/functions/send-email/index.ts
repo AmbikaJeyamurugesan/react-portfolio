@@ -47,7 +47,6 @@ Deno.serve(async (req) => {
       port: smtpPort,
       username: smtpUser,
       password: smtpPass,
-      tls: true,
     });
 
     // Send email
