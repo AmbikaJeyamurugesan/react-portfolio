@@ -216,7 +216,7 @@ const Projects: React.FC<ProjectsProps> = ({ id }) => {
         {/* Show all projects button */}
         <div className="text-center mt-12">
           <a 
-            href="https://github.com/yourusername" 
+            href="https://github.com/AmbikaJeyamurugesan" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-full transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50"
