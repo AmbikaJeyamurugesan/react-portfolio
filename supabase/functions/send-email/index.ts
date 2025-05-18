@@ -1,4 +1,4 @@
-import { SMTPClient } from "npm:emailjs@4.0.3";
+   import { SMTPClient } from "npm:emailjs@4.0.3";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -46,7 +46,7 @@ Deno.serve(async (req) => {
 From: ${data.name} <${data.email}>
 Subject: ${data.subject}
 
-${data.name} <${data.email}> ${data.message}
+${data.message}
       `.trim(),
       html: `
 <h2>New Contact Form Submission</h2>
