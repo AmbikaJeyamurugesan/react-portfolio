@@ -1,4 +1,4 @@
-   import { SMTPClient } from "npm:emailjs@4.0.3";
+import { SMTPClient } from "npm:emailjs@4.0.3";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -22,6 +22,8 @@ Deno.serve(async (req) => {
     });
   }
 
+  let client: SMTPClient | null = null;
+
   try {
     const data = await req.json() as EmailData;
     
@@ -30,17 +32,30 @@ Deno.serve(async (req) => {
       throw new Error('Missing required fields');
     }
 
-    const client = new SMTPClient({
-      host: Deno.env.get('SMTP_HOST'),
-      port: Number(Deno.env.get('SMTP_PORT')) || 465,
-      user: Deno.env.get('SMTP_USER'),
-      password: Deno.env.get('SMTP_PASS'),
+    // Validate SMTP configuration
+    const host = Deno.env.get('SMTP_HOST');
+    const port = Number(Deno.env.get('SMTP_PORT'));
+    const user = Deno.env.get('SMTP_USER');
+    const password = Deno.env.get('SMTP_PASS');
+    const from = Deno.env.get('SMTP_FROM');
+    const to = Deno.env.get('SMTP_TO');
+
+    if (!host || !port || !user || !password || !from || !to) {
+      throw new Error('Invalid SMTP configuration');
+    }
+
+    client = new SMTPClient({
+      host,
+      port,
+      user,
+      password,
       ssl: true,
     });
 
     const message = {
-      from: `${data.name} <${Deno.env.get('SMTP_FROM')}>`,
-      to: Deno.env.get('SMTP_TO') || '',
+      from: `"${data.name}" <${from}>`,
+      to: to,
+      replyTo: data.email,
       subject: `Portfolio Contact: ${data.subject}`,
       text: `
 From: ${data.name} <${data.email}>
@@ -81,5 +96,14 @@ ${data.message}
         status: 500
       }
     );
+  } finally {
+    // Clean up SMTP connection
+    if (client) {
+      try {
+        client.close();
+      } catch (e) {
+        console.error('Error closing SMTP connection:', e);
+      }
+    }
   }
 });
