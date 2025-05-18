@@ -1,19 +1,10 @@
 import { SMTPClient } from "npm:emailjs@4.0.3";
-
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS'
 };
-
-interface EmailData {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
-
-Deno.serve(async (req) => {
+Deno.serve(async (req)=>{
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response(null, {
@@ -21,17 +12,26 @@ Deno.serve(async (req) => {
       headers: corsHeaders
     });
   }
-
-  let client: SMTPClient | null = null;
-
+  let client = null;
   try {
-    const data = await req.json() as EmailData;
-    
+    const data = await req.json();
     // Validate input data
     if (!data.name || !data.email || !data.subject || !data.message) {
       throw new Error('Missing required fields');
     }
-
+    const requiredEnv = [
+      'SMTP_HOST',
+      'SMTP_PORT',
+      'SMTP_USER',
+      'SMTP_PASS',
+      'SMTP_FROM',
+      'SMTP_TO'
+    ];
+    const missing = requiredEnv.filter((key)=>!Deno.env.get(key));
+    if (missing.length > 0) {
+      console.error('Missing environment variables:', missing.join(', '));
+      throw new Error('Invalid SMTP configuration');
+    }
     // Validate SMTP configuration
     const host = Deno.env.get('SMTP_HOST');
     const port = Number(Deno.env.get('SMTP_PORT'));
@@ -39,19 +39,16 @@ Deno.serve(async (req) => {
     const password = Deno.env.get('SMTP_PASS');
     const from = Deno.env.get('SMTP_FROM');
     const to = Deno.env.get('SMTP_TO');
-
     if (!host || !port || !user || !password || !from || !to) {
       throw new Error('Invalid SMTP configuration');
     }
-
     client = new SMTPClient({
       host,
       port,
       user,
       password,
-      ssl: true,
+      ssl: true
     });
-
     const message = {
       from: `"${data.name}" <${from}>`,
       to: to,
@@ -69,34 +66,33 @@ ${data.message}
 <p><strong>Subject:</strong> ${data.subject}</p>
 <p><strong>Message:</strong></p>
 <p>${data.message.replace(/\n/g, '<br>')}</p>
-      `.trim(),
+      `.trim()
     };
-
     await client.sendAsync(message);
-
-    return new Response(
-      JSON.stringify({ success: true, message: 'Email sent successfully' }), 
-      { 
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        status: 200 
-      }
-    );
-
+    return new Response(JSON.stringify({
+      success: true,
+      message: 'Email sent successfully'
+    }), {
+      headers: {
+        ...corsHeaders,
+        'Content-Type': 'application/json'
+      },
+      status: 200
+    });
   } catch (error) {
     console.error('Email sending error:', error);
-    
-    return new Response(
-      JSON.stringify({
-        success: false,
-        message: 'Failed to send email. Please try again later.',
-        error: error.message
-      }),
-      { 
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        status: 500
-      }
-    );
-  } finally {
+    return new Response(JSON.stringify({
+      success: false,
+      message: 'Failed to send email. Please try again later.',
+      error: error.message
+    }), {
+      headers: {
+        ...corsHeaders,
+        'Content-Type': 'application/json'
+      },
+      status: 500
+    });
+  } finally{
     // Clean up SMTP connection
     if (client) {
       try {
