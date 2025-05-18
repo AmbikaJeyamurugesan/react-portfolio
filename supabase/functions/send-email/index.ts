@@ -1,4 +1,4 @@
-import { SmtpClient } from "https://deno.land/x/smtp@v0.7.0/mod.ts";
+import { SMTPClient } from "npm:emailjs@4.0.3";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -23,81 +23,62 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { name, email, subject, message } = await req.json() as EmailData;
-
-    // Get secrets from Supabase
-    const smtpHost = Deno.env.get('SMTP_HOST');
-    const smtpPort = parseInt(Deno.env.get('SMTP_PORT') || '587');
-    const smtpUser = Deno.env.get('SMTP_USER');
-    const smtpPass = Deno.env.get('SMTP_PASS');
-    const smtpFrom = Deno.env.get('SMTP_FROM');
-    const smtpTo = Deno.env.get('SMTP_TO');
-
-    // Validate required environment variables
-    if (!smtpHost || !smtpPort || !smtpUser || !smtpPass || !smtpFrom || !smtpTo) {
-      throw new Error('Missing required SMTP configuration');
+    const data = await req.json() as EmailData;
+    
+    // Validate input data
+    if (!data.name || !data.email || !data.subject || !data.message) {
+      throw new Error('Missing required fields');
     }
 
-    // Create SMTP client
-    const client = new SmtpClient();
-
-    // Connect to SMTP server
-    await client.connectTLS({
-      hostname: smtpHost,
-      port: smtpPort,
-      username: smtpUser,
-      password: smtpPass,
-      tls: true,
+    const client = new SMTPClient({
+      host: Deno.env.get('SMTP_HOST'),
+      port: Number(Deno.env.get('SMTP_PORT')) || 465,
+      user: Deno.env.get('SMTP_USER'),
+      password: Deno.env.get('SMTP_PASS'),
+      ssl: true,
     });
 
-    // Send email
-    await client.send({
-      from: smtpFrom,
-      to: smtpTo,
-      subject: `Portfolio Contact: ${subject}`,
-      content: `
-Name: ${name}
-Email: ${email}
-Subject: ${subject}
-Message: ${message}
+    const message = {
+      from: `${data.name} <${Deno.env.get('SMTP_FROM')}>`,
+      to: Deno.env.get('SMTP_TO') || '',
+      subject: `Portfolio Contact: ${data.subject}`,
+      text: `
+From: ${data.name} <${data.email}>
+Subject: ${data.subject}
+
+${data.name} <${data.email}> ${data.message}
       `.trim(),
       html: `
 <h2>New Contact Form Submission</h2>
-<p><strong>Name:</strong> ${name}</p>
-<p><strong>Email:</strong> ${email}</p>
-<p><strong>Subject:</strong> ${subject}</p>
+<p><strong>From:</strong> ${data.name} &lt;${data.email}&gt;</p>
+<p><strong>Subject:</strong> ${data.subject}</p>
 <p><strong>Message:</strong></p>
-<p>${message}</p>
-      `.trim()
-    });
+<p>${data.message.replace(/\n/g, '<br>')}</p>
+      `.trim(),
+    };
 
-    // Close the connection
-    await client.close();
+    await client.sendAsync(message);
 
     return new Response(
-      JSON.stringify({ success: true, message: 'Email sent successfully' }),
+      JSON.stringify({ success: true, message: 'Email sent successfully' }), 
       { 
-        headers: { 
-          ...corsHeaders,
-          'Content-Type': 'application/json'
-        }
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        status: 200 
       }
     );
 
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('Email sending error:', error);
+    
     return new Response(
-      JSON.stringify({ 
-        success: false, 
+      JSON.stringify({
+        success: false,
         message: 'Failed to send email. Please try again later.',
         error: error.message
       }),
       { 
-        status: 500,
-        headers: {
-          ...corsHeaders,
-          'Content-Type': 'application/json'
-        }
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        status: 500
       }
     );
   }
