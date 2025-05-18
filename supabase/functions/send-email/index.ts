@@ -1,4 +1,4 @@
-import { Resend } from "npm:resend@3.2.0";
+import { SMTPClient } from "npm:emailjs@4.0.3";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -22,6 +22,8 @@ Deno.serve(async (req) => {
     });
   }
 
+  let client: SMTPClient | null = null;
+
   try {
     const data = await req.json() as EmailData;
     
@@ -30,20 +32,30 @@ Deno.serve(async (req) => {
       throw new Error('Missing required fields');
     }
 
-    // Get Resend API key
-    const resendApiKey = Deno.env.get('RESEND_API_KEY');
-    const toEmail = Deno.env.get('TO_EMAIL');
+    // Validate SMTP configuration
+    const host = Deno.env.get('SMTP_HOST');
+    const port = Number(Deno.env.get('SMTP_PORT'));
+    const user = Deno.env.get('SMTP_USER');
+    const password = Deno.env.get('SMTP_PASS');
+    const from = Deno.env.get('SMTP_FROM');
+    const to = Deno.env.get('SMTP_TO');
 
-    if (!resendApiKey || !toEmail) {
-      throw new Error('Missing email configuration');
+    if (!host || !port || !user || !password || !from || !to) {
+      throw new Error('Invalid SMTP configuration');
     }
 
-    const resend = new Resend(resendApiKey);
+    client = new SMTPClient({
+      host,
+      port,
+      user,
+      password,
+      ssl: true,
+    });
 
-    await resend.emails.send({
-      from: 'Portfolio Contact Form <onboarding@resend.dev>',
-      to: toEmail,
-      reply_to: data.email,
+    const message = {
+      from: `"${data.name}" <${from}>`,
+      to: to,
+      replyTo: data.email,
       subject: `Portfolio Contact: ${data.subject}`,
       text: `
 From: ${data.name} <${data.email}>
@@ -58,7 +70,9 @@ ${data.message}
 <p><strong>Message:</strong></p>
 <p>${data.message.replace(/\n/g, '<br>')}</p>
       `.trim(),
-    });
+    };
+
+    await client.sendAsync(message);
 
     return new Response(
       JSON.stringify({ success: true, message: 'Email sent successfully' }), 
@@ -82,5 +96,14 @@ ${data.message}
         status: 500
       }
     );
+  } finally {
+    // Clean up SMTP connection
+    if (client) {
+      try {
+        client.close();
+      } catch (e) {
+        console.error('Error closing SMTP connection:', e);
+      }
+    }
   }
 });
