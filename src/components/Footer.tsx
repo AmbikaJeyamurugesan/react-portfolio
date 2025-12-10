@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
               </h3>
               <ul className="mt-4 space-y-2">
                 <li className="text-gray-500">
-                  ambikajdeveloper@gmail.com
+                  ambikajeyamurugesan@gmail.com
                 </li>
                 <li className="text-gray-500">
                   Tamil Nadu, India

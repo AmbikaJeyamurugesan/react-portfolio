@@ -7,7 +7,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ id }) => {
   const typingTextRef = useRef<HTMLSpanElement>(null);
-  const phrases = ['Software Developer', 'Full Stack Engineer'];
+  const phrases = ['Software Development Engineer', 'Tech Enthusiast'];
   
   useEffect(() => {
     let currentPhraseIndex = 0;

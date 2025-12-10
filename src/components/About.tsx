@@ -46,7 +46,7 @@ const About: React.FC<AboutProps> = ({ id }) => {
                 </div>
                 <div className="ml-4">
                   <p className="text-sm text-gray-500 dark:text-gray-400">Email</p>
-                  <p className="font-medium text-gray-800 dark:text-white">ambikajdeveloper@gmail.com</p>
+                  <p className="font-medium text-gray-800 dark:text-white">ambikajeyamurugesan@gmail.com</p>
                 </div>
               </div>
 
