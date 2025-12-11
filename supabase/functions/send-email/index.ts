@@ -1,6 +1,6 @@
 import { SMTPClient } from "npm:emailjs@4.0.3";
 const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Origin': 'https://ambi-portfolio.netlify.app/',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
   'Access-Control-Allow-Methods': 'POST, OPTIONS'
 };
