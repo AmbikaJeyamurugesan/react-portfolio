@@ -41,7 +41,7 @@ Deno.serve(async (req) => {
 
     client = new SMTPClient({
       host,
-      port: 587,
+      port,
       user,
       password,
       ssl: true
