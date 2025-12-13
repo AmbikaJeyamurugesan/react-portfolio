@@ -55,17 +55,22 @@ Deno.serve(async (req) => {
       replyTo: data.email,
       subject: `Portfolio Contact: ${data.subject}`,
       text: `
-From: ${data.name} <${data.email}>
-Subject: ${data.subject}
+    From: ${data.name} <${data.email}>
+    Subject: ${data.subject}
 
-${data.message}
+    ${data.message}
       `.trim(),
       html: `
-<h2>New Contact Form Submission</h2>
-<p><strong>From:</strong> ${data.name} &lt;${data.email}&gt;</p>
-<p><strong>Subject:</strong> ${data.subject}</p>
-<p><strong>Message:</strong></p>
-<p>${data.message.replace(/\n/g, '<br>')}</p>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h2>New Contact Form Submission</h2>
+        <p><strong>From:</strong> ${data.name} &lt;${data.email}&gt;</p>
+        <p><strong>Subject:</strong> ${data.subject}</p>
+        <p><strong>Message:</strong></p>
+        <p>${data.message.replace(/\n/g, '<br>')}</p>
+      </body>
+    </html>
       `.trim()
     };
 
