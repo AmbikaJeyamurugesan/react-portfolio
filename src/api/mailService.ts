@@ -8,7 +8,7 @@ interface EmailData {
 export class MailService {
   static async sendEmail(data: EmailData): Promise<{ success: boolean; message: string }> {
     try {
-      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-email`, {
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/resend-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

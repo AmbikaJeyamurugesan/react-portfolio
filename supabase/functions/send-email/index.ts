@@ -2,7 +2,7 @@ import { SMTPClient } from "npm:emailjs@4.0.3";
 
 // CORS headers for your Netlify frontend
 const corsHeaders = {
-  'Access-Control-Allow-Origin': 'https://ambi-portfolio.netlify.app', // no trailing slash
+  'Access-Control-Allow-Origin': '*', // no trailing slash
   'Access-Control-Allow-Headers': 'Authorization, Content-Type',
   'Access-Control-Allow-Methods': 'POST, OPTIONS'
 };
