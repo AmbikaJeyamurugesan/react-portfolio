@@ -44,7 +44,7 @@ Deno.serve(async (req) => {
       port: 587,
       user,
       password,
-      tls: true
+      ssl: true
     });
 
 
