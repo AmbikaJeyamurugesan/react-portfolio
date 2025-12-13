@@ -39,7 +39,14 @@ Deno.serve(async (req) => {
     const from = Deno.env.get('SMTP_FROM')!;
     const to = Deno.env.get('SMTP_TO')!;
 
-    client = new SMTPClient({ host, port, user, password, ssl: true });
+    client = new SMTPClient({
+      host,
+      port: 587,
+      user,
+      password,
+      tls: true
+    });
+
 
     // Compose message
     const message = {
