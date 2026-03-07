@@ -7,7 +7,10 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ id }) => {
   const typingTextRef = useRef<HTMLSpanElement>(null);
-  const phrases = ['Software Development Engineer', 'Tech Enthusiast'];
+  const phrases = [
+    'Python Developer',
+    'AI & Machine Learning Enthusiast',
+  ];
   
   useEffect(() => {
     let currentPhraseIndex = 0;
@@ -75,7 +78,7 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
         </h2>
         
         <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 animate-fade-in-up animation-delay-600">
-          Transforming ideas into digital experiences with clean code and creative solutions.
+          Python developer focused on Machine Learning, data analysis, and building intelligent software solutions.
         </p>
         
         <div className="animate-fade-in-up animation-delay-900">

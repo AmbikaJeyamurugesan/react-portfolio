@@ -21,13 +21,14 @@ const Experience: React.FC<ExperienceProps> = ({ id }) => {
       company: "Esevel Pte Ltd",
       position: "Junior Software Developer",
       period: "June 2024 - Present",
-      description: "Leading the development of cloud-based enterprise solutions.",
+      description: "Developing and maintaining scalable backend systems for a multi-tenant SaaS platform deployed on AWS cloud infrastructure.",
       responsibilities: [
-        "Enhanced and supported scalable features in a multi-tenant Laravel-based SaaS platform.",
-        "Wrote RESTful APIs and unit tests to ensure high code reliability and maintainability.",
-        "Participated in AWS deployments (EC2, RDS, S3) and managed CI/CD pipelines for production releases.",
-        "Resolved 15+ production issues per quarter, improving stability and reducing customer-reported bugs by 60%.",
-        "Engaged in daily stand-ups, peer code reviews, and team retrospectives in an agile environment."
+        "Enhanced and maintained scalable features in a multi-tenant Laravel-based SaaS platform serving multiple enterprise clients.",
+        "Designed and implemented RESTful APIs to support frontend applications and third-party integrations.",
+        "Participated in AWS cloud deployments using EC2, RDS, and S3, ensuring high availability and reliability.",
+        "Automated testing and improved code quality through unit testing and peer code reviews.",
+        "Resolved 15+ production issues per quarter, reducing customer-reported bugs by 60% and improving system stability.",
+        "Collaborated in Agile development cycles including sprint planning, daily stand-ups, and retrospectives."
       ]
     },
     {
@@ -60,7 +61,7 @@ const Experience: React.FC<ExperienceProps> = ({ id }) => {
           </h2>
           <div className="w-20 h-1 bg-primary-600 dark:bg-primary-400 mx-auto rounded-full"></div>
           <p className="mt-6 max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
-            My professional journey through various roles and companies.
+            My professional experience building backend systems, APIs, and scalable applications while expanding my expertise in Python and data-driven solutions.
           </p>
         </div>
 

@@ -14,34 +14,34 @@ interface SkillProps {
 const Skills: React.FC<SkillProps> = ({ id }) => {
   const skillCategories: SkillCategory[] = [
     {
-      title: 'Frontend',
-      icon: <Layout className="w-6 h-6" />,
-      skills: ['React', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap']
-    },
-    {
-      title: 'Backend',
-      icon: <Server className="w-6 h-6" />,
-      skills: ['PHP', 'Laravel','Python', 'Flask']
-    },
-    {
-      title: 'Database',
-      icon: <Database className="w-6 h-6" />,
-      skills: ['MySQL']
-    },
-    {
-      title: 'DevOps',
-      icon: <Terminal className="w-6 h-6" />,
-      skills: ['AWS', 'Git', 'Git Lab', 'CI/CD', 'GitHub', 'GitHub Actions']
-    },
-    {
-      title: 'Programming Languages',
+      title: 'Programming',
       icon: <Code className="w-6 h-6" />,
-      skills: ['JavaScript', 'PHP', 'Python', 'Laravel']
+      skills: ['Python', 'JavaScript', 'PHP']
     },
     {
-      title: 'Other',
+      title: 'Machine Learning & AI',
+      icon: <Terminal className="w-6 h-6" />,
+      skills: ['Scikit-learn', 'TensorFlow', 'Pandas', 'NumPy', 'Data Analysis']
+    },
+    {
+      title: 'Backend Development',
+      icon: <Server className="w-6 h-6" />,
+      skills: ['Python', 'FastAPI', 'Flask', 'Django', 'Laravel', 'REST APIs']
+    },
+    {
+      title: 'Databases',
+      icon: <Database className="w-6 h-6" />,
+      skills: ['MySQL', 'PostgreSQL']
+    },
+    {
+      title: 'Web Technologies',
+      icon: <Layout className="w-6 h-6" />,
+      skills: ['React', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap']
+    },
+    {
+      title: 'Tools & DevOps',
       icon: <Globe className="w-6 h-6" />,
-      skills: ['RESTful APIs', 'Multi-Tenant Architecture', 'WebSockets', 'Microservices', 'Git']
+      skills: ['Git', 'GitHub', 'GitLab', 'AWS', 'CI/CD', 'GitHub Actions']
     }
   ];
 
@@ -57,7 +57,7 @@ const Skills: React.FC<SkillProps> = ({ id }) => {
           </h2>
           <div className="w-20 h-1 bg-primary-600 dark:bg-primary-400 mx-auto rounded-full"></div>
           <p className="mt-6 max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
-            Here are some of the technologies and tools I've worked with throughout my career.
+            Technologies and tools I use to build Python applications, machine learning models, and data-driven solutions.
           </p>
         </div>
 
@@ -86,72 +86,6 @@ const Skills: React.FC<SkillProps> = ({ id }) => {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold mb-8 text-center text-gray-800 dark:text-white">Technical Proficiency</h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
-            <div>
-              <div className="flex justify-between mb-1">
-                <span className="font-medium text-gray-700 dark:text-gray-300">Frontend Development</span>
-                <span className="text-primary-600 dark:text-primary-400 font-medium">70%</span>
-              </div>
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                <div className="bg-primary-600 dark:bg-primary-500 h-2.5 rounded-full" style={{ width: '70%' }}></div>
-              </div>
-            </div>
-            
-            <div>
-              <div className="flex justify-between mb-1">
-                <span className="font-medium text-gray-700 dark:text-gray-300">Backend Development</span>
-                <span className="text-primary-600 dark:text-primary-400 font-medium">85%</span>
-              </div>
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                <div className="bg-primary-600 dark:bg-primary-500 h-2.5 rounded-full" style={{ width: '85%' }}></div>
-              </div>
-            </div>
-            
-            <div>
-              <div className="flex justify-between mb-1">
-                <span className="font-medium text-gray-700 dark:text-gray-300">Database Management</span>
-                <span className="text-primary-600 dark:text-primary-400 font-medium">70%</span>
-              </div>
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                <div className="bg-primary-600 dark:bg-primary-500 h-2.5 rounded-full" style={{ width: '70%' }}></div>
-              </div>
-            </div>
-            
-            {/* <div>
-              <div className="flex justify-between mb-1">
-                <span className="font-medium text-gray-700 dark:text-gray-300">UI/UX Design</span>
-                <span className="text-primary-600 dark:text-primary-400 font-medium">70%</span>
-              </div>
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                <div className="bg-primary-600 dark:bg-primary-500 h-2.5 rounded-full" style={{ width: '70%' }}></div>
-              </div>
-            </div> */}
-            
-            <div>
-              <div className="flex justify-between mb-1">
-                <span className="font-medium text-gray-700 dark:text-gray-300">DevOps</span>
-                <span className="text-primary-600 dark:text-primary-400 font-medium">60%</span>
-              </div>
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                <div className="bg-primary-600 dark:bg-primary-500 h-2.5 rounded-full" style={{ width: '60%' }}></div>
-              </div>
-            </div>
-            
-            {/* <div>
-              <div className="flex justify-between mb-1">
-                <span className="font-medium text-gray-700 dark:text-gray-300">System Architecture</span>
-                <span className="text-primary-600 dark:text-primary-400 font-medium">85%</span>
-              </div>
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                <div className="bg-primary-600 dark:bg-primary-500 h-2.5 rounded-full" style={{ width: '85%' }}></div>
-              </div>
-            </div> */}
-          </div>
         </div>
       </div>
     </section>
