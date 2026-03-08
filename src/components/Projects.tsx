@@ -22,29 +22,29 @@ const Projects: React.FC<ProjectsProps> = ({ id }) => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "RESTful API Service",
+      title: "LexQuery AI-Powered Legal Document",
       category: "backend",
-      image: "https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      description: "A scalable RESTful API service for CRM, Multi-tenant applications.",
-      technologies: ["Laravel", "PHP", "Python", "JWT"],
+      image: "https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      description: "AI-powered REST API that lets users upload legal PDFs and ask natural language questions, returning precise answers with page-level citations using RAG architecture.",
+      technologies: ["Python", "FastAPI", "LangChain", "ChromaDB", "PostgreSQL", "OpenAI API", "Docker"],
       demoLink: "#",
-      githubLink: "#"
+      githubLink: "https://github.com/AmbikaJeyamurugesan/Lexquery-RAG-API"
     },
     {
       id: 2,
-      title: "Film-vault",
-      category: "frontend",
-      image: "https://images.pexels.com/photos/6169659/pexels-photo-6169659.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      description: "A React-based movie listing app using the OMDB API. Allows users to search, view details, and manage a list of favorite movies.",
-      technologies: ["React", "Tailwind CSS", "OMDB API"],
-      demoLink: "https://react-film-vault.netlify.app/",
-      githubLink: "https://github.com/AmbikaJeyamurugesan/react-film-vault"
+      title: "RESTful API Service",
+      category: "backend",
+      image: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // code on screen
+      description: "A scalable RESTful API service for CRM, Multi-tenant applications.",
+      technologies: ["Python", "Laravel", "JWT"],
+      demoLink: "#",
+      githubLink: "#"
     },
     {
       id: 3,
       title: "PCO Detector",
       category: "fullstack",
-      image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      image: "https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // eye / medical
       description: "Implemented a deep learning model using CNN to detect PCO in post-cataract surgery images.",
       technologies: ["Python", "HTML", "CSS"],
       demoLink: "#",
@@ -52,34 +52,64 @@ const Projects: React.FC<ProjectsProps> = ({ id }) => {
     },
     {
       id: 4,
+      title: "Support Ticket Classifier",
+      category: "backend",
+      image: "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // customer support headset
+      description: "A Django REST API that automatically classifies customer support tickets using Machine Learning, secured with JWT authentication, backed by MySQL, and tested with pytest.",
+      technologies: ["Django REST Framework", "JWT authentication", "MySQL", "ML integration", "pytest"],
+      demoLink: "#",
+      githubLink: "https://github.com/AmbikaJeyamurugesan/support-ticket-classifier"
+    },
+    {
+      id: 5,
+      title: "Log Analytics API",
+      category: "backend",
+      image: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // analytics / charts / monitoring
+      description: "A Log Analytics Backend API built using FastAPI, SQLAlchemy, and MySQL. The system ingests application logs, stores them efficiently, and exposes analytics APIs for filtering, aggregation, and monitoring.",
+      technologies: ["Python", "FastAPI", "SQLAlchemy", "MySQL", "PyTest"],
+      demoLink: "#",
+      githubLink: "https://github.com/AmbikaJeyamurugesan/log-analytics-api"
+    },
+    {
+      id: 6,
+      title: "Task Automation API",
+      category: "backend",
+      image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // automation / workflow gears
+      description: "A Python, FastAPI, MySQL, SQLAlchemy, Pydantic, JWT Authentication, Pytest, Docker, REST API",
+      technologies: ["Python", "FastAPI", "MySQL", "SQLAlchemy", "Pydantic", "JWT Authentication", "Pytest", "Docker", "REST API"],
+      demoLink: "#",
+      githubLink: "https://github.com/AmbikaJeyamurugesan/fastapi-task-automation"
+    },
+    {
+      id: 7,
+      title: "URL Shortener API",
+      category: "backend",
+      image: "https://images.pexels.com/photos/270360/pexels-photo-270360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // internet / network / browser links
+      description: "A simple URL shortener API built with Flask and SQLAlchemy.",
+      technologies: ["Python", "Flask", "SQLAlchemy", "MySQL"],
+      demoLink: "#",
+      githubLink: "https://github.com/AmbikaJeyamurugesan/python-url-shortener"
+    },
+    {
+      id: 8,
+      title: "Film-vault",
+      category: "frontend",
+      image: "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // cinema / movie reels / popcorn
+      description: "A React-based movie listing app using the OMDB API. Allows users to search, view details, and manage a list of favorite movies.",
+      technologies: ["React", "Tailwind CSS", "OMDB API"],
+      demoLink: "https://react-film-vault.netlify.app/",
+      githubLink: "https://github.com/AmbikaJeyamurugesan/react-film-vault"
+    },
+    {
+      id: 9,
       title: "Portfolio Website",
       category: "frontend",
-      image: "https://images.pexels.com/photos/196646/pexels-photo-196646.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // laptop / developer workspace
       description: "A responsive portfolio website showcasing projects, skills, and professional experience.",
       technologies: ["React", "TypeScript", "Tailwind CSS"],
       demoLink: "#",
       githubLink: "#"
     },
-    // {
-    //   id: 4,
-    //   title: "Real-time Chat Application",
-    //   category: "fullstack",
-    //   image: "https://images.pexels.com/photos/4126743/pexels-photo-4126743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    //   description: "A real-time chat platform with private messaging, group chats, and file sharing capabilities.",
-    //   technologies: ["React", "Socket.io", "Node.js", "Express", "MongoDB"],
-    //   demoLink: "#",
-    //   githubLink: "#"
-    // },
-    // {
-    //   id: 5,
-    //   title: "Weather Forecast Dashboard",
-    //   category: "frontend",
-    //   image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    //   description: "An interactive weather dashboard displaying current conditions and forecast for multiple locations.",
-    //   technologies: ["React", "Redux", "Chart.js", "OpenWeather API"],
-    //   demoLink: "#",
-    //   githubLink: "#"
-    // }
   ];
 
   const filters = [
