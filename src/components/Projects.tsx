@@ -110,6 +110,16 @@ const Projects: React.FC<ProjectsProps> = ({ id }) => {
       demoLink: "#",
       githubLink: "#"
     },
+    {
+      id: 10,
+      title: "Chronic Kidney Disease Prediction",
+      category: "backend",
+      image: "https://images.pexels.com/photos/7659565/pexels-photo-7659565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      description: "A machine learning application that predicts Chronic Kidney Disease using a Random Forest model with automated preprocessing and a FastAPI REST API for real-time predictions.",
+      technologies: ["Python", "Pandas", "Scikit-learn", "Random Forest", "FastAPI", "Joblib"],
+      demoLink: "#",
+      githubLink: "https://github.com/AmbikaJeyamurugesan/chronic-kidney-disease"
+    },
   ];
 
   const filters = [
