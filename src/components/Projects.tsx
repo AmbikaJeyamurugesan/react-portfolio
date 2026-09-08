@@ -32,6 +32,16 @@ const Projects: React.FC<ProjectsProps> = ({ id }) => {
     },
     {
       id: 2,
+      title: "Telegram Bot: Real-Time AI Telegram Assistant",
+      category: "backend",
+      image: "https://images.pexels.com/photos/8438918/pexels-photo-8438918.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      description: "A real-time conversational Telegram bot built with aiogram (async) and integrated with OpenAI's Responses API.",
+      technologies: ["Python", "aiogram", "OpenAI API"],
+      demoLink: "#",
+      githubLink: "https://github.com/AmbikaJeyamurugesan/telegram-bot"
+    },
+    {
+      id: 3,
       title: "RESTful API Service",
       category: "backend",
       image: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -41,7 +51,7 @@ const Projects: React.FC<ProjectsProps> = ({ id }) => {
       githubLink: "#"
     },
     {
-      id: 3,
+      id: 4,
       title: "PCO Detector",
       category: "fullstack",
       image: "https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // eye / medical
@@ -51,7 +61,7 @@ const Projects: React.FC<ProjectsProps> = ({ id }) => {
       githubLink: "https://github.com/AmbikaJeyamurugesan/pco-detector"
     },
     {
-      id: 4,
+      id: 5,
       title: "Chronic Kidney Disease Prediction API",
       category: "backend",
       image: "https://images.pexels.com/photos/7659565/pexels-photo-7659565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -61,7 +71,7 @@ const Projects: React.FC<ProjectsProps> = ({ id }) => {
       githubLink: "https://github.com/AmbikaJeyamurugesan/chronic-kidney-disease"
     },
     {
-      id: 5,
+      id: 6,
       title: "Support Ticket Classifier",
       category: "backend",
       image: "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // customer support headset
@@ -71,7 +81,7 @@ const Projects: React.FC<ProjectsProps> = ({ id }) => {
       githubLink: "https://github.com/AmbikaJeyamurugesan/support-ticket-classifier"
     },
     {
-      id: 6,
+      id: 7,
       title: "Log Analytics API",
       category: "backend",
       image: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -81,7 +91,7 @@ const Projects: React.FC<ProjectsProps> = ({ id }) => {
       githubLink: "https://github.com/AmbikaJeyamurugesan/log-analytics-api"
     },
     {
-      id: 7,
+      id: 8,
       title: "Task Automation API",
       category: "backend",
       image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -91,7 +101,7 @@ const Projects: React.FC<ProjectsProps> = ({ id }) => {
       githubLink: "https://github.com/AmbikaJeyamurugesan/fastapi-task-automation"
     },
     {
-      id: 8,
+      id: 9,
       title: "URL Shortener API",
       category: "backend",
       image: "https://images.pexels.com/photos/270360/pexels-photo-270360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -101,7 +111,7 @@ const Projects: React.FC<ProjectsProps> = ({ id }) => {
       githubLink: "https://github.com/AmbikaJeyamurugesan/python-url-shortener"
     },
     {
-      id: 9,
+      id: 10,
       title: "Film-vault",
       category: "frontend",
       image: "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -111,7 +121,7 @@ const Projects: React.FC<ProjectsProps> = ({ id }) => {
       githubLink: "https://github.com/AmbikaJeyamurugesan/react-film-vault"
     },
     {
-      id: 10,
+      id: 11,
       title: "Portfolio Website",
       category: "frontend",
       image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
