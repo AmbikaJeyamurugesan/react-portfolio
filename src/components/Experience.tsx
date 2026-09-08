@@ -18,31 +18,30 @@ const Experience: React.FC<ExperienceProps> = ({ id }) => {
   const experiences: Experience[] = [
     {
       id: 1,
-      company: "Esevel Pte Ltd",
-      position: "Junior Software Developer",
-      period: "June 2024 - Present",
-      description: "Developing and maintaining scalable backend systems for a multi-tenant SaaS platform deployed on AWS cloud infrastructure.",
+      company: "ESEVEL Pte. Ltd. (Skuad)",
+      position: "Backend Developer",
+      period: "June 2024 - August 2026",
+      description: "Building and maintaining backend systems and REST APIs for a multi-tenant SaaS platform deployed on AWS, serving 50+ clients across 3+ subscription tiers.",
       responsibilities: [
-        "Enhanced and maintained scalable features in a multi-tenant Laravel-based SaaS platform serving multiple enterprise clients.",
-        "Designed and implemented RESTful APIs to support frontend applications and third-party integrations.",
-        "Participated in AWS cloud deployments using EC2, RDS, and S3, ensuring high availability and reliability.",
-        "Automated testing and improved code quality through unit testing and peer code reviews.",
-        "Resolved 15+ production issues per quarter, reducing customer-reported bugs by 60% and improving system stability.",
-        "Collaborated in Agile development cycles including sprint planning, daily stand-ups, and retrospectives."
+        "Designed, tested, and maintained 10+ secure Open API endpoints for user, device, and asset management workflows, writing clean, reusable code to internal standards.",
+        "Debugged and resolved critical production issues, improving platform stability and reducing customer-reported incidents by 60%, while improving API response times by 35%.",
+        "Integrated Google Workspace, Microsoft Entra ID, and third-party connectors via REST APIs and JSON payloads, handling authentication and data validation across 10+ client accounts.",
+        "Refactored multi-tenant architecture across 3+ subscription tiers serving 50+ clients, using Git-based version control for reliable, incremental delivery.",
+        "Deployed and monitored production releases on AWS on a biweekly-to-monthly cadence, documenting workflows and troubleshooting steps for the team."
       ]
     },
     {
       id: 2,
-      company: "Maxvy Technologies",
-      position: "Full Stack Developer",
-      period: "Apr 2023 - Mar 2024",
-      description: "Developed and maintained web applications for clients across various industries.",
+      company: "MAXVY Technologies",
+      position: "Graduate Engineer Trainee",
+      period: "January 2023 - March 2024",
+      description: "Developed backend APIs and applications for IoT device integration and internal business systems.",
       responsibilities: [
-        "Constructed a responsive CRM system using PHP, HTML, CSS, and JS with 100% mobile responsiveness.",
-        "Streamlined hybrid mobile apps with Flutter for BLE connectivity, QR scanning, and real-time logs.",
-        "Created and maintained Laravel APIs for seamless data exchange between IoT devices and backend systems.",
-        "Implemented CI/CD pipelines using GitLab.",
-        "Recognized with the 'Shining Star Award' (Nov 2023) for excellence in backend system integration and deliver."
+        "Built and maintained 5+ REST API endpoints for IoT device integration, handling JSON-based real-time communication and debugging connectivity issues.",
+        "Developed a responsive, 7+ module CRM system (PHP, HTML, CSS, JavaScript), applying OOP principles for maintainable, reusable code.",
+        "Streamlined a Flutter-based hybrid app for BLE connectivity and QR scanning, documenting technical workflows for handoff.",
+        "Implemented CI/CD pipelines using GitLab to streamline builds and deployments.",
+        "Earned the 'Shining Star Award' for consistent, high-quality delivery."
       ]
     }
   ];
@@ -61,7 +60,7 @@ const Experience: React.FC<ExperienceProps> = ({ id }) => {
           </h2>
           <div className="w-20 h-1 bg-primary-600 dark:bg-primary-400 mx-auto rounded-full"></div>
           <p className="mt-6 max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
-            My professional experience building backend systems, APIs, and scalable applications while expanding my expertise in Python and data-driven solutions.
+            My professional experience building backend systems, APIs, and scalable applications while expanding my expertise in Python and Generative AI.
           </p>
         </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Database, Globe, Layout, Server, Terminal } from 'lucide-react';
+import { Code, Database, Server, Terminal, Globe } from 'lucide-react';
 
 interface SkillCategory {
   title: string;
@@ -14,34 +14,29 @@ interface SkillProps {
 const Skills: React.FC<SkillProps> = ({ id }) => {
   const skillCategories: SkillCategory[] = [
     {
-      title: 'Programming',
+      title: 'Programming & Fundamentals',
       icon: <Code className="w-6 h-6" />,
-      skills: ['Python', 'JavaScript', 'PHP']
+      skills: ['Python', 'OOP', 'Data Structures & Algorithms', 'JavaScript', 'PHP']
     },
     {
-      title: 'Machine Learning & AI',
+      title: 'AI / ML & Generative AI',
       icon: <Terminal className="w-6 h-6" />,
-      skills: ['Scikit-learn', 'TensorFlow', 'Pandas', 'NumPy', 'Data Analysis']
+      skills: ['Scikit-learn', 'Pandas', 'NumPy', 'LangChain', 'LangGraph', 'MCP', 'Retrieval-Augmented Generation (RAG)', 'Prompt Engineering', 'OpenAI API', 'Embeddings', 'Vector Search']
     },
     {
       title: 'Backend Development',
       icon: <Server className="w-6 h-6" />,
-      skills: ['Python', 'FastAPI', 'Flask', 'Django', 'Laravel', 'REST APIs']
+      skills: ['FastAPI', 'Flask', 'Laravel', 'REST APIs', 'JSON', 'Webhooks', 'Authentication & Authorization']
     },
     {
       title: 'Databases',
       icon: <Database className="w-6 h-6" />,
-      skills: ['MySQL', 'PostgreSQL']
-    },
-    {
-      title: 'Web Technologies',
-      icon: <Layout className="w-6 h-6" />,
-      skills: ['React', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap']
+      skills: ['SQL', 'PostgreSQL', 'MySQL', 'Vector Databases (ChromaDB)']
     },
     {
       title: 'Tools & DevOps',
       icon: <Globe className="w-6 h-6" />,
-      skills: ['Git', 'GitHub', 'GitLab', 'AWS', 'CI/CD', 'GitHub Actions']
+      skills: ['Git', 'GitHub', 'GitLab', 'AWS', 'CI/CD', 'GitHub Actions', 'VS Code', 'PyTest']
     }
   ];
 
@@ -57,7 +52,7 @@ const Skills: React.FC<SkillProps> = ({ id }) => {
           </h2>
           <div className="w-20 h-1 bg-primary-600 dark:bg-primary-400 mx-auto rounded-full"></div>
           <p className="mt-6 max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
-            Technologies and tools I use to build Python applications, machine learning models, and data-driven solutions.
+            Technologies and tools I use to build Python applications, machine learning models, and Generative AI solutions.
           </p>
         </div>
 

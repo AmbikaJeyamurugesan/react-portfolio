@@ -1,6 +1,6 @@
 import React from 'react';
 import { User, Mail, MapPin, Calendar } from 'lucide-react';
-import Profile from '../public/profile.jpg'
+import Profile from '../public/profile.jpg';
 
 interface AboutProps {
   id: string;
@@ -24,11 +24,9 @@ const About: React.FC<AboutProps> = ({ id }) => {
           <div className="order-2 lg:order-1">
             <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Personal Info</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              I'm a <b>Python developer</b> passionate about <b>Artificial Intelligence and Machine Learning.</b> I enjoy building intelligent systems that analyze data, identify patterns, and solve real-world problems.<br />
+              I'm a <b>Python developer</b> with 3+ years of experience building <b>REST APIs and backend services</b>, and hands-on project experience in <b>Machine Learning and Generative AI</b>. I enjoy building systems that are not just clever, but reliable from clean API design to models that actually work under real data.<br /><br />
 
-              My experience includes working with Python, data analysis, and machine learning libraries to develop 
-              predictive models and data-driven applications. I am constantly learning new technologies in AI 
-              to build scalable and impactful solutions.
+              My backend work spans API design, authentication, third-party integrations, and production debugging. On the AI side, I've built a Retrieval-Augmented Generation (RAG) application using LangChain and vector search, and a machine learning pipeline that reached 98% accuracy on a classification task. I'm continuously deepening my skills in LLMs, prompt engineering, and agentic AI tooling like LangChain, LangGraph, and MCP.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4">
@@ -68,7 +66,7 @@ const About: React.FC<AboutProps> = ({ id }) => {
                 </div>
                 <div className="ml-4">
                   <p className="text-sm text-gray-500 dark:text-gray-400">Experience</p>
-                  <p className="font-medium text-gray-800 dark:text-white">2.9+ Years</p>
+                  <p className="font-medium text-gray-800 dark:text-white">3+ Years</p>
                 </div>
               </div>
             </div>

@@ -9,7 +9,7 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
   const typingTextRef = useRef<HTMLSpanElement>(null);
   const phrases = [
     'Python Developer',
-    'AI & Machine Learning Enthusiast',
+    'AI/ML & Generative AI',
   ];
   
   useEffect(() => {
@@ -78,7 +78,7 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
         </h2>
         
         <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 animate-fade-in-up animation-delay-600">
-          Python developer focused on Machine Learning, data analysis, and building intelligent software solutions.
+          Python Developer with 3+ years of experience building scalable APIs and Backend services, along with Python, Generative AI, and LLM-powered applications.
         </p>
         
         <div className="animate-fade-in-up animation-delay-900">
